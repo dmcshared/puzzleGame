@@ -11,9 +11,12 @@ namespace DaMastaCoda.Gravity
 
         private void Start()
         {
-            if (gravityTrigger == null) gravityTrigger = GetComponent<Collider>();
+            if (gravityTrigger == null)
+            {
+                gravityTrigger = GetComponent<Collider>();
+                gravityTrigger.isTrigger = true;
+            }
         }
-
 
         private void OnTriggerEnter(Collider other)
         {
@@ -41,7 +44,6 @@ namespace DaMastaCoda.Gravity
             {
                 mass.AddAcceleration(CalcAcceleration(mass));
             }
-
         }
 
         public abstract Vector3 CalcAcceleration(GravityHandler mass);

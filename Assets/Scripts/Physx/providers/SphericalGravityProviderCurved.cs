@@ -4,20 +4,17 @@ using UnityEngine;
 
 namespace DaMastaCoda.Gravity
 {
-    public class SphericalGravityProvider : GravityProvider
+    public class SphericalGravityProviderCurved : GravityProvider
     {
-        public float strength = 5.0f;
+        public AnimationCurve curve;
 
         public override Vector3 CalcAcceleration(GravityHandler mass)
         {
             Vector3 direction = transform.position - mass.transform.position;
 
-            return direction.normalized * strength;
-        }
+            Debug.Log(direction.magnitude);
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.DrawWireSphere(transform.position, strength);
+            return direction.normalized * curve.Evaluate(direction.magnitude);
         }
     }
 }

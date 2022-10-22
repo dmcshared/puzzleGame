@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-
 namespace DaMastaCoda.Gravity
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -39,7 +38,6 @@ namespace DaMastaCoda.Gravity
         private void OnDrawGizmosSelected()
         {
             Gizmos.DrawRay(transform.position, currentDown);
-
         }
     }
 }
